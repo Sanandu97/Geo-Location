@@ -1,0 +1,18 @@
+({
+    doInit : function(component, event, helper) {
+        helper.findGeolocation(component, event, helper);
+        console.log('doInit called');
+        console.log('captureGeolocation called');
+    },
+     
+    captureGeolocation : function(component, event, helper) {
+        helper.captureHelper(component, event);
+        console.log('captureGeolocation called');
+    },
+    captureGeolocations : function(component, event, helper) {
+        helper.findGeolocation(component, event, helper);
+        console.log('doInit called');
+        helper.captureHelpers(component, event);
+        console.log('captureGeolocations called');
+    }
+})

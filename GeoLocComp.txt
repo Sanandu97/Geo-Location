@@ -1,0 +1,36 @@
+<aura:component implements="force:LightningQuickActionWithoutHeader,force:hasRecordId,lightning:hasPageReference,lightning:isUrlAddressable,lightning:availableForFlowActions"  access="global" controller="GeolocationController" >
+     <aura:html tag="style">
+        .slds-modal {
+        visibility: hidden;
+        display: none;
+        }
+        .slds-backdrop{
+        display: none;
+        
+        }        
+  </aura:html>
+    <!--define attributes-->
+    <aura:attribute name="latitude" type="Decimal" />
+    <aura:attribute name="longitude" type="Decimal" />
+    <aura:attribute name="recordId" type="String" />
+     
+    <!--call doInit-->
+    <aura:handler name="init" value="{!this}" action="{!c.captureGeolocation}" />
+     
+    <!--display device latitude and longitude-->
+    <div class="slds-align_absolute-center" style="height:5rem">
+        Latitude: {!v.latitude} <br/>
+        Longitude: {!v.longitude}<br/>
+        <p/>
+    </div>
+    <div class="slds-align_absolute-center" style="height:5rem">
+        <!--button to call captureGeolocation in controller-->
+        <lightning:button variant="brand" label="Start Visit" onclick="{!c.captureGeolocations}"/>
+        <lightning:button variant="brand" label="End Visit" onclick="{!c.captureGeolocations}"/>
+        <!--<lightning:navigation aura:id="navigate" />
+        <lightning:button variant="brand" label="Submit Expense " onclick="{!c.handleClick}"/>-->
+       <!--< <lightning:navigation aura:id="navigate" />
+        <lightning:button variant="brand" label="Submit Expense" onclick="{!c.navigate1}" />-->
+                         
+    </div>
+</aura:component>
